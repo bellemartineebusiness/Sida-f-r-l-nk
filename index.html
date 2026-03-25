@@ -13,10 +13,85 @@
 </head>
 <body>
 
+  <!-- COOKIE CONSENT BANNER -->
+  <div class="cookie-banner" id="cookieBanner" role="dialog" aria-label="Cookie-samtycke" aria-modal="true">
+    <div class="cookie-banner__inner">
+      <div class="cookie-banner__text">
+        <span class="cookie-banner__icon">🍪</span>
+        <div>
+          <strong>Vi använder cookies</strong>
+          <p>Vi använder cookies för att förbättra din upplevelse, analysera trafik och visa relevanta annonser. Du kan välja vilka cookies du accepterar. Läs mer i vår <a href="integritetspolicy.html" class="cookie-link">integritetspolicy</a> och <a href="integritetspolicy.html#cookies" class="cookie-link">cookiepolicy</a>.</p>
+        </div>
+      </div>
+      <div class="cookie-banner__actions">
+        <button class="btn btn--cookie-settings" id="cookieSettings">Hantera inställningar</button>
+        <button class="btn btn--cookie-decline" id="cookieDecline">Avvisa alla</button>
+        <button class="btn btn--cookie-accept" id="cookieAccept">Acceptera alla</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- COOKIE PREFERENCES MODAL -->
+  <div class="cookie-modal" id="cookieModal" role="dialog" aria-modal="true" aria-label="Cookieinställningar" style="display:none">
+    <div class="cookie-modal__backdrop" id="cookieModalBackdrop"></div>
+    <div class="cookie-modal__box">
+      <div class="cookie-modal__header">
+        <h3>Cookieinställningar</h3>
+        <button class="cookie-modal__close" id="cookieModalClose" aria-label="Stäng">✕</button>
+      </div>
+      <div class="cookie-modal__body">
+        <p class="cookie-modal__intro">Vi respekterar din integritet. Välj vilka kategorier av cookies du tillåter. Nödvändiga cookies kan inte avaktiveras eftersom de är nödvändiga för webbplatsens funktion.</p>
+
+        <div class="cookie-category">
+          <div class="cookie-category__header">
+            <div>
+              <strong>Nödvändiga cookies</strong>
+              <p>Krävs för att webbplatsen ska fungera korrekt. Kan inte avaktiveras.</p>
+            </div>
+            <div class="toggle toggle--disabled">
+              <input type="checkbox" id="cookieNecessary" checked disabled />
+              <span class="toggle__slider"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category__header">
+            <div>
+              <strong>Analytiska cookies</strong>
+              <p>Hjälper oss att förstå hur besökare interagerar med webbplatsen (t.ex. Google Analytics).</p>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" id="cookieAnalytics" />
+              <span class="toggle__slider"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cookie-category">
+          <div class="cookie-category__header">
+            <div>
+              <strong>Marknadsföringscookies</strong>
+              <p>Används för att visa relevanta annonser och mäta effektiviteten av kampanjer.</p>
+            </div>
+            <div class="toggle">
+              <input type="checkbox" id="cookieMarketing" />
+              <span class="toggle__slider"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cookie-modal__footer">
+        <button class="btn btn--cookie-decline" id="cookieSaveDecline">Avvisa alla</button>
+        <button class="btn btn--cookie-accept" id="cookieSavePrefs">Spara mina val</button>
+      </div>
+    </div>
+  </div>
+
   <!-- NAVBAR -->
   <header class="navbar" id="navbar">
     <div class="container navbar__inner">
-      <a href="#" class="navbar__logo">
+      <a href="index.html" class="navbar__logo">
         <span class="logo-icon">✦</span> PristineClean
       </a>
       <nav class="navbar__links" id="navLinks">
@@ -33,31 +108,38 @@
   </header>
 
   <!-- HERO -->
-  <section class="hero">
-    <div class="hero__bg-pattern"></div>
+  <section class="hero" id="hero">
+    <div class="hero__bg-overlay"></div>
     <div class="container hero__inner">
-      <div class="hero__badge">⭐ Betyg 4,9/5 – över 2 000 nöjda kunder</div>
-      <h1 class="hero__title">
-        Vi städar – du njuter<br />
-        <span class="highlight">av din tid</span>
-      </h1>
-      <p class="hero__subtitle">
-        Professionell, pålitlig och noggrann städning för hem och kontor.
-        Boka enkelt online och få ett fast pris på direkten.
-      </p>
-      <div class="hero__ctas">
-        <a href="#kontakt" class="btn btn--primary btn--lg">Få gratis offert nu</a>
-        <a href="#tjanster" class="btn btn--outline btn--lg">Se våra tjänster</a>
+      <div class="hero__content">
+        <div class="hero__badge">⭐ Betyg 4,9/5 – över 2 000 nöjda kunder</div>
+        <h1 class="hero__title">
+          Vi städar – du njuter<br />
+          <span class="highlight">av din tid</span>
+        </h1>
+        <p class="hero__subtitle">
+          Professionell, pålitlig och noggrann städning för hem och kontor.
+          Boka enkelt online och få ett fast pris på direkten.
+        </p>
+        <div class="hero__ctas">
+          <a href="#kontakt" class="btn btn--primary btn--lg">Få gratis offert nu</a>
+          <a href="#tjanster" class="btn btn--outline-white btn--lg">Se våra tjänster</a>
+        </div>
+        <ul class="hero__trust">
+          <li>✓ Ingen bindningstid</li>
+          <li>✓ Nöjd-kund-garanti</li>
+          <li>✓ Försäkrat &amp; certifierat</li>
+          <li>✓ RUT-avdrag</li>
+        </ul>
       </div>
-      <ul class="hero__trust">
-        <li>✓ Ingen bindningstid</li>
-        <li>✓ Nöjd-kund-garanti</li>
-        <li>✓ Försäkrat & certifierat</li>
-        <li>✓ RUT-avdrag</li>
-      </ul>
-    </div>
-    <div class="hero__scroll-indicator">
-      <span></span>
+      <div class="hero__image-wrap">
+        <img
+          src="https://github.com/user-attachments/assets/44a91655-d641-4633-a272-246e637818c9"
+          alt="Professionell städutrustning – hink, mopp och städprodukter"
+          class="hero__image"
+          loading="eager"
+        />
+      </div>
     </div>
   </section>
 
@@ -101,8 +183,8 @@
           <p>Regelbunden städning av ditt hem. Vi sköter allt – från dammsugning och moppning till badrum och kök.</p>
           <ul class="service-card__list">
             <li>Veckostädning eller varannan vecka</li>
-            <li>Damm, golv & ytor</li>
-            <li>Badrum & kök inkluderat</li>
+            <li>Damm, golv &amp; ytor</li>
+            <li>Badrum &amp; kök inkluderat</li>
           </ul>
           <a href="#kontakt" class="btn btn--ghost">Boka hemstädning →</a>
         </div>
@@ -112,9 +194,9 @@
           <h3>Kontorsstädning</h3>
           <p>Håll er arbetsplats fräsch och representativ. Vi städar när det passar ert schema – tidig morgon eller sen kväll.</p>
           <ul class="service-card__list">
-            <li>Flexibla tider & schema</li>
-            <li>Toaletter & personalutrymmen</li>
-            <li>Papperskorgar & ytor</li>
+            <li>Flexibla tider &amp; schema</li>
+            <li>Toaletter &amp; personalutrymmen</li>
+            <li>Papperskorgar &amp; ytor</li>
           </ul>
           <a href="#kontakt" class="btn btn--primary">Boka kontorsstädning →</a>
         </div>
@@ -124,7 +206,7 @@
           <p>Lämna lägenheten i perfekt skick. Vår flytt­städning uppfyller hyresvärdars krav och ger dig full deposition tillbaka.</p>
           <ul class="service-card__list">
             <li>Djuprengöring av hela bostaden</li>
-            <li>Ugn, kyl & frys</li>
+            <li>Ugn, kyl &amp; frys</li>
             <li>Garanti på utfört arbete</li>
           </ul>
           <a href="#kontakt" class="btn btn--ghost">Boka flytt­städning →</a>
@@ -135,7 +217,7 @@
           <p>Klara och rena fönster gör underverk för ljusinsläppet och hemmets känsla. Vi putsar insida och utsida.</p>
           <ul class="service-card__list">
             <li>In- och utsida</li>
-            <li>Karmar & fönsterbrädor</li>
+            <li>Karmar &amp; fönsterbrädor</li>
             <li>Kan kombineras med städning</li>
           </ul>
           <a href="#kontakt" class="btn btn--ghost">Boka fönsterputs →</a>
@@ -156,9 +238,9 @@
           <h3>Storstädning</h3>
           <p>En ordentlig storstädning ett par gånger per år ger ditt hem ett rejält lyft. Perfekt inför högtider och fest.</p>
           <ul class="service-card__list">
-            <li>Bakom möbler & vitvaror</li>
+            <li>Bakom möbler &amp; vitvaror</li>
             <li>Djuprengöring av kök</li>
-            <li>Garderober & fönster</li>
+            <li>Garderober &amp; fönster</li>
           </ul>
           <a href="#kontakt" class="btn btn--ghost">Boka storstädning →</a>
         </div>
@@ -220,28 +302,37 @@
           </div>
         </div>
         <div class="why-us__visual">
-          <div class="visual-card">
-            <div class="visual-card__stars">★★★★★</div>
-            <p>"Fantastisk städning! Lägenheten har aldrig sett så bra ut. Verkligen värde för pengarna."</p>
-            <div class="visual-card__author">
-              <div class="avatar">AS</div>
-              <div>
-                <strong>Anna Svensson</strong>
-                <span>Hemkund, Stockholm</span>
+          <div class="why-us__photo-wrap">
+            <img
+              src="https://github.com/user-attachments/assets/99f3bc0b-8d7a-4585-90bd-e227ff033f71"
+              alt="Professionell städare torkar ett kontorsskrivbord med blå handskar och gul trasa"
+              class="why-us__photo"
+              loading="lazy"
+            />
+            <div class="why-us__photo-badge">
+              <div class="visual-card__stars">★★★★★</div>
+              <p>"Fantastisk städning! Lägenheten har aldrig sett så bra ut."</p>
+              <div class="visual-card__author">
+                <div class="avatar">AS</div>
+                <div>
+                  <strong>Anna Svensson</strong>
+                  <span>Hemkund, Stockholm</span>
+                </div>
               </div>
             </div>
           </div>
-          <div class="visual-card visual-card--offset">
-            <div class="visual-card__badge">🏆 Årets städfirma 2024</div>
-            <div class="visual-stats">
-              <div class="visual-stat">
-                <strong>98%</strong>
-                <span>Återkommande kunder</span>
-              </div>
-              <div class="visual-stat">
-                <strong>24h</strong>
-                <span>Svarstid på offert</span>
-              </div>
+          <div class="why-us__stats">
+            <div class="why-stat">
+              <strong>98%</strong>
+              <span>Återkommande kunder</span>
+            </div>
+            <div class="why-stat">
+              <strong>24h</strong>
+              <span>Svarstid på offert</span>
+            </div>
+            <div class="why-stat">
+              <strong>🏆</strong>
+              <span>Årets städfirma 2024</span>
             </div>
           </div>
         </div>
@@ -269,9 +360,9 @@
           </div>
           <div class="price-rut">Efter RUT: <strong>150 kr/timme</strong></div>
           <ul class="pricing-card__features">
-            <li>✓ Dammsugning & moppning</li>
-            <li>✓ Badrum & toalett</li>
-            <li>✓ Kök & köksbänkar</li>
+            <li>✓ Dammsugning &amp; moppning</li>
+            <li>✓ Badrum &amp; toalett</li>
+            <li>✓ Kök &amp; köksbänkar</li>
             <li>✓ Damning av ytor</li>
             <li class="disabled">✗ Fönsterputs</li>
             <li class="disabled">✗ Inuti skåp</li>
@@ -292,7 +383,7 @@
           <ul class="pricing-card__features">
             <li>✓ Allt i Bas</li>
             <li>✓ Fönsterputs (insida)</li>
-            <li>✓ Inuti skåp & lådor</li>
+            <li>✓ Inuti skåp &amp; lådor</li>
             <li>✓ Samma städare varje gång</li>
             <li>✓ Prioriterat kundstöd</li>
             <li class="disabled">✗ Djuprengöring</li>
@@ -312,8 +403,8 @@
           <ul class="pricing-card__features">
             <li>✓ Allt i Premium</li>
             <li>✓ Djuprengöring</li>
-            <li>✓ Ugn & kyl/frys</li>
-            <li>✓ Fönsterputs (in & ut)</li>
+            <li>✓ Ugn &amp; kyl/frys</li>
+            <li>✓ Fönsterputs (in &amp; ut)</li>
             <li>✓ Garanti på utfört arbete</li>
             <li>✓ Flexibla tider dygnet runt</li>
           </ul>
@@ -439,18 +530,18 @@
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Namn *</label>
-                <input type="text" id="name" name="name" placeholder="Ditt namn" required />
+                <input type="text" id="name" name="name" placeholder="Ditt namn" required autocomplete="name" />
                 <span class="form-error" id="nameError"></span>
               </div>
               <div class="form-group">
                 <label for="phone">Telefon *</label>
-                <input type="tel" id="phone" name="phone" placeholder="07X-XXX XX XX" required />
+                <input type="tel" id="phone" name="phone" placeholder="07X-XXX XX XX" required autocomplete="tel" />
                 <span class="form-error" id="phoneError"></span>
               </div>
             </div>
             <div class="form-group">
               <label for="email">E-post *</label>
-              <input type="email" id="email" name="email" placeholder="din@epost.se" required />
+              <input type="email" id="email" name="email" placeholder="din@epost.se" required autocomplete="email" />
               <span class="form-error" id="emailError"></span>
             </div>
             <div class="form-row">
@@ -483,13 +574,14 @@
             </div>
             <div class="form-group form-group--checkbox">
               <input type="checkbox" id="gdpr" name="gdpr" required />
-              <label for="gdpr">Jag godkänner att PristineClean sparar mina kontaktuppgifter för att kunna återkomma med offert. <a href="#" class="link">Läs vår integritetspolicy</a>.</label>
+              <label for="gdpr">Jag godkänner att PristineClean AB behandlar mina personuppgifter för att kunna besvara min offertförfrågan, i enlighet med GDPR. <a href="integritetspolicy.html" class="link" target="_blank">Läs vår integritetspolicy</a>. *</label>
               <span class="form-error" id="gdprError"></span>
             </div>
             <button type="submit" class="btn btn--primary btn--full btn--lg" id="submitBtn">
               <span class="btn-text">Skicka offertförfrågan</span>
-              <span class="btn-loading" style="display:none">Skickar...</span>
+              <span class="btn-loading" style="display:none">Skickar…</span>
             </button>
+            <p class="form-disclaimer">Dina uppgifter behandlas säkert och delas aldrig med tredje part. <a href="integritetspolicy.html" class="link" target="_blank">Integritetspolicy</a></p>
           </form>
           <div class="form-success" id="formSuccess" style="display:none">
             <div class="form-success__icon">✓</div>
@@ -505,7 +597,7 @@
   <footer class="footer">
     <div class="container footer__inner">
       <div class="footer__brand">
-        <div class="navbar__logo">
+        <div class="navbar__logo" style="margin-bottom:16px">
           <span class="logo-icon">✦</span> PristineClean
         </div>
         <p>Professionell städning för hem och kontor. Vi gör din vardag enklare, renare och mer bekymmersfri.</p>
@@ -548,11 +640,12 @@
     </div>
     <div class="footer__bottom">
       <div class="container footer__bottom-inner">
-        <p>© 2024 PristineClean AB. Alla rättigheter förbehållna.</p>
+        <p>© 2024 PristineClean AB · Org.nr 556XXX-XXXX · Alla rättigheter förbehållna.</p>
         <div class="footer__bottom-links">
-          <a href="#">Integritetspolicy</a>
-          <a href="#">Cookiepolicy</a>
-          <a href="#">Allmänna villkor</a>
+          <a href="integritetspolicy.html">Integritetspolicy</a>
+          <a href="integritetspolicy.html#cookies">Cookiepolicy</a>
+          <a href="integritetspolicy.html#villkor">Allmänna villkor</a>
+          <button class="footer__cookie-btn" id="reopenCookies">Hantera cookies</button>
         </div>
       </div>
     </div>
